@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+	Project Midnight - Case Study
+    </title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',    /* Slate 900 */
+                            card: '#1e293b',    /* Slate 800 */
+                            accent: '#10b981',  /* Emerald 500 */
+                            muted: '#94a3b8'    /* Slate 400 */
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+</head>
+
+<body class="bg-brand-dark text-slate-100 font-sans antialiased">
+
+
+
+    <!-- Navigation Bar -->
+
+    <nav class="fixed top-0 w-full bg-brand-dark/80 backdrop-blur-md border-b border-slate-800 z-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="../index.html" class="text-sm font-medium text-brand-muted hover:text-brand-accent transition-colors flex items-center gap-2">
+                <i class="fa-solid fa-arrow-left text-xs"></i> Back to Portfolio
+            </a>
+            <div class="flex space-x-4 text-base">
+                <a href="../index.html" class="text-brand-muted hover:text-white transition-colors"><i class="fa-brands fa-github"></i></a>
+                <a href="../index.html" class="text-brand-muted hover:text-white transition-colors"><i class="fa-brands fa-itch-io"></i></a>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+    <!-- Project Header/Hero -->
+
+    <section id="header">
+
+    <header class="relative pt-32 pb-16 overflow-hidden border-b border-slate-900 bg-slate-950">
+        <!-- Background Grid Highlight -->
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_100%,#000_70%,transparent_100%)] opacity-30"></div>
+        
+        <div class="relative max-w-4xl mx-auto px-4 z-10">
+            <span class="inline-block px-3 py-1 text-xs font-semibold tracking-widest text-brand-accent uppercase bg-brand-accent/10 rounded-full mb-4 border border-brand-accent/20">
+                Systems Design & Architecture
+            </span>
+            <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-white mb-4">
+                Project Midnight
+            </h1>
+            <p class="text-lg text-brand-muted max-w-2xl mb-8 leading-relaxed">
+                Engineering a modular, data-driven abilities framework and extensible AI behavior state machines in Unity.
+            </p>
+
+            <!-- Metadata Strip -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-slate-800 text-sm">
+                <div>
+                    <span class="block text-xs font-mono text-slate-500 uppercase">Role</span>
+                    <span class="font-medium text-slate-200">Technical Designer</span>
+                </div>
+                <div>
+                    <span class="block text-xs font-mono text-slate-500 uppercase">Timeline</span>
+                    <span class="font-medium text-slate-200">3 Months (2026)</span>
+                </div>
+                <div>
+                    <span class="block text-xs font-mono text-slate-500 uppercase">Engine / Tech</span>
+                    <span class="font-medium text-slate-200">Unity / C#</span>
+                </div>
+                <div>
+                    <span class="block text-xs font-mono text-slate-500 uppercase">Team Size</span>
+                    <span class="font-medium text-slate-200">4 Developers</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    </section>
+
+
+    <!-- Main Content Body -->
+
+    <main class="max-w-4xl mx-auto px-4 py-16">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Long-form Case Study Content -->
+            <article class="lg:col-span-8 space-y-12">
+                
+                <!-- Section 1: Overview -->
+                <section class="space-y-4">
+                    <h2 class="text-2xl font-bold text-white tracking-tight">Project Overview</h2>
+                    <p class="text-brand-muted leading-relaxed">
+                        Project Midnight is a fast-paced, top-down rogue-like action game built around intense player ability combinations. As the sole technical designer on the team, my responsibility was to design and implement a flexible system capable of handling hundreds of mechanical variations without generating spaghetti code.
+                    </p>
+                </section>
+
+                <!-- Section 2: The Design Challenge -->
+                <section class="space-y-4">
+                    <h2 class="text-2xl font-bold text-white tracking-tight">The Design Challenge</h2>
+                    <p class="text-brand-muted leading-relaxed">
+                        Our content design team needed to rapidly prototype and balance over 50 unique combat modifications during testing cycles. The naive approach—writing hard-coded scripts for every single spell iteration—clogged our pipeline and created massive development friction between engineering and art asset drops. 
+                    </p>
+                    <blockquote class="border-l-2 border-brand-accent bg-brand-card/50 px-4 py-3 text-sm italic text-slate-300 rounded-r-lg">
+                        "How do we allow designers to configure multi-stage gameplay abilities entirely inside the engine inspector without needing explicit engineering support for every pass?"
+                    </blockquote>
+                </section>
+
+                <!-- Section 3: Technical Implementation -->
+                <section class="space-y-4">
+                    <h2 class="text-2xl font-bold text-white tracking-tight">The Architecture Solution</h2>
+                    <p class="text-brand-muted leading-relaxed">
+                        I developed a decoupled framework leveraging Unity's data containers. Spells were split down into atomic, reusable actions like applying damage, tracking momentum variables, and instantiating custom particles.
+                    </p>
+                    <p class="text-brand-muted leading-relaxed">
+                        By linking modular actions inside a master container script, team members could drag-and-drop structural elements together to build custom behaviors immediately.
+                    </p>
+                    
+                    <!-- Example Code Block -->
+                    <div class="bg-slate-950 border border-slate-800 rounded-lg p-4 font-mono text-xs overflow-x-auto text-emerald-400">
+                        <span class="text-slate-500">// ScriptableObject action layer example</span><br>
+                        [CreateAssetMenu(menuName = <span class="text-teal-300">"Abilities/Actions/Damage"</span>)]<br>
+                        <span class="text-blue-400">public class</span> <span class="text-yellow-200">DealDamageAction</span> : <span class="text-yellow-200">AbilityAction</span><br>
+                        {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-400">public override void</span> <span class="text-yellow-200">Execute</span>(GameObject user, GameObject target)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;{<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-blue-400">var</span> health = target.GetComponent&lt;<span class="text-yellow-200">IHealth</span>&gt;();<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;health?.TakeDamage(damageAmount);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }
+                    </div>
+                </section>
+
+                <!-- Section 4: Documented Results -->
+                <section class="space-y-4">
+                    <h2 class="text-2xl font-bold text-white tracking-tight">The Results</h2>
+                    <p class="text-brand-muted leading-relaxed">
+                        The architecture successfully decoupled system configuration from underlying systems logic. Testing feedback cycles accelerated by roughly 40%, leaving the engineering team free to focus entirely on platform performance bottlenecks and pathfinding systems optimization.
+                    </p>
+                </section>
+
+            </article>
+
+            <!-- Sticky Sidebar (Links, Assets, Stats) -->
+            <aside class="lg:col-span-4 space-y-6">
+                <div class="bg-brand-card border border-slate-800 p-6 rounded-xl lg:sticky lg:top-24 space-y-6">
+                    <div>
+                        <h3 class="text-sm font-semibold uppercase tracking-wider text-white mb-3">Key Contributions</h3>
+                        <ul class="text-xs space-y-2 text-brand-muted">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-brand-accent mt-0.5"></i>
+                                <span>Engineered modular spell infrastructure</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-brand-accent mt-0.5"></i>
+                                <span>Authored custom inspector UI tools</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-brand-accent mt-0.5"></i>
+                                <span>Optimized state machine updates</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="border-t border-slate-800 pt-4">
+                        <h3 class="text-sm font-semibold uppercase tracking-wider text-white mb-3">Project Assets</h3>
+                        <div class="space-y-2">
+                            <a href="#" class="flex items-center justify-between p-2 bg-slate-900 border border-slate-700 rounded text-xs hover:border-brand-accent transition-colors group">
+                                <span class="text-slate-300 group-hover:text-white"><i class="fa-solid fa-file-pdf mr-2 text-slate-400"></i> Technical Spec Doc</span>
+                                <i class="fa-solid fa-download text-slate-500 text-[10px]"></i>
+                            </a>
+                            <a href="#" class="flex items-center justify-between p-2 bg-slate-900 border border-slate-700 rounded text-xs hover:border-brand-accent transition-colors group">
+                                <span class="text-slate-300 group-hover:text-white"><i class="fa-brands fa-github mr-2 text-slate-400"></i> Code Repository</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-slate-500 text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+
+
+    <!-- Footer Footer Content -->
+
+    <footer class="bg-slate-950 py-12 border-t border-slate-900 text-center text-sm text-brand-muted">
+        <div class="max-w-4xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>&copy; 2026 Game Architecture Portfolio. All rights reserved.</p>
+            <a href="#header" class="hover:text-brand-accent transition-colors flex items-center gap-1">
+                Back to Top <i class="fa-solid fa-arrow-up text-xs"></i>
+            </a>
+        </div>
+    </footer>
+
+</body>
+</html>
