@@ -406,6 +406,32 @@
                 transform: translateX(-50%) rotate(-1.5deg) !important;
                 z-index: 1005 !important;
             }
+
+			/* --- Image Mobile Sizing Fixes --- */
+        
+	        /* Overrides inline widths so diagrams and photos fill the mobile screen safely */
+	        .profile-container {
+	            width: 100% !important;
+	            max-width: 100% !important;
+	            height: auto !important;
+	            margin-left: 0 !important; 
+	            margin-right: 0 !important;
+	            float: none !important; /* Fixes the floating About Me picture */
+	            box-sizing: border-box;
+	        }
+	
+	        /* Forces any side-by-side content rows to stack vertically on phones */
+	        .intro-row {
+	            flex-direction: column !important;
+	            align-items: center !important;
+	        }
+	        
+	        /* Ensures the project board snapshots don't overflow their cards */
+	        .project-snapshot {
+	            width: 100% !important;
+	            max-width: 100% !important;
+	            height: auto !important;
+	        }
         }
 		
     </style>
