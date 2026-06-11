@@ -48,18 +48,6 @@
             transform: rotate(-0.2deg);
         }
 
-        .nav-tape {
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            width: 120px;
-            height: 30px;
-            margin-left: -60px;
-            background-color: rgba(255, 255, 255, 0.6);
-            transform: rotate(1deg);
-            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-        }
-
         .nav-group {
             display: flex;
             align-items: center;
@@ -103,16 +91,30 @@
             margin-right: 15px; 
         }
 
+        /* 1. Fix the Tape to the browser window */
+        .nav-tape {
+            position: fixed; /* Changed from absolute */
+            top: 0px; /* Aligns perfectly with the sticky nav at top: 10px */
+            left: 50%;
+            width: 120px;
+            height: 30px;
+            transform: translateX(-50%) rotate(1deg); /* Centers perfectly */
+            background-color: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            z-index: 1005; /* Ensures it stays above everything */
+        }
+
+        /* 2. Turn the dropdown into a centered, floating menu */
         .nav-dropdown-content {
             display: none;
-            position: absolute;
-            top: 120%;
-            left: -20px;
+            position: fixed; /* Breaks out of the scroll container */
+            top: 65px; /* Drops it just beneath the sticky nav */
+            left: 50%;
+            transform: translateX(-50%) rotate(-1.5deg); /* Centers it globally */
             padding: 15px;
             box-shadow: 3px 5px 10px rgba(0,0,0,0.2);
-            z-index: 1001;
+            z-index: 1005;
             border: 1px solid #ddd;
-            transform: rotate(-1.5deg);
             min-width: 220px;
             border-bottom-right-radius: 15px 3px;
         }
@@ -373,18 +375,6 @@
             .btn-post-it img {
                 width: 16px !important;
                 height: 16px !important;
-            }
-
-            /* Adjust dropdown alignment for the smaller buttons */
-            .nav-dropdown {
-                margin-left: 5px !important;
-                margin-right: 5px !important;
-            }
-            
-            .nav-dropdown-content {
-                left: 0;
-                transform: rotate(-1.5deg);
-                min-width: 180px;
             }
 
             /* -- General Layout Adjustments (Keep these from before) -- */
