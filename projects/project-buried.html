@@ -326,6 +326,55 @@
             border-color: #111;
             background: #f4f0e6;
         }
+
+		/* --- Mobile Responsiveness Overrides --- */
+        @media (max-width: 768px) {
+            /* Stack navigation links to avoid horizontal clipping */
+            .sticky-nav {
+                flex-direction: column;
+                gap: 15px;
+                padding-top: 25px;
+            }
+            .nav-group {
+                justify-content: center;
+                margin: 0 !important;
+            }
+            
+            /* Adjust the dropdown menu position for mobile so it doesn't go off-screen */
+            .nav-dropdown-content {
+                left: 50%;
+                transform: translateX(-50%) rotate(-1.5deg);
+            }
+
+            /* Resize the main project title */
+            .page-title {
+                font-size: 2rem;
+                width: 85%;
+                white-space: normal;
+                padding: 10px;
+            }
+
+            /* Compress scraps (post-its) */
+            .scrap {
+                padding: 15px;
+            }
+
+            /* Stack side-by-side image and description rows */
+            .intro-row {
+                flex-direction: column;
+            }
+
+            /* Force profile containers to stay within their parent scraps */
+            .profile-container {
+                max-width: 100% !important;
+            }
+
+            /* Make the masonry grid single-column on phones */
+            .masonry-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+		
     </style>
 </head>
 <body>
