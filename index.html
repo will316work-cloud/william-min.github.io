@@ -34,11 +34,13 @@
         }
         
         h1, h2, h3 {
-            font-family: 'Courier New', Courier, monospace;
+            font-family: 'Marker Felt', 'Comic Sans MS', sans-serif;
             font-weight: bold;
-	    	font-size: 30px;
             color: #111;
         }
+        
+        h2 { font-size: 2.2rem; }
+        h3 { font-size: 1.8rem; }
 
         /* 1. Main Navigation Container */
         .sticky-nav {
@@ -334,24 +336,27 @@
             display: block;
             float: right;
             margin-top: 20px;
-            background: #fff;
-            border: 2px dashed #999;
-            padding: 5px 15px;
-            color: #555;
+            background: #fdfd96; /* Classic yellow post-it note color */
+            padding: 8px 18px;
+            color: #111;
             text-decoration: none;
+            box-shadow: 2px 3px 5px rgba(0,0,0,0.2);
+            border-bottom-right-radius: 15px 3px;
             font-weight: bold;
-            font-family: 'Courier New', Courier, monospace;
+            font-family: 'Patrick Hand', 'Comic Sans MS', cursive;
+            font-size: 1.1rem;
             transform: rotate(-2deg);
             transition: all 0.2s ease;
+            border: none; /* Removes the old dashed border */
         }
 
         .scroll-top:hover {
-            transform: scale(1.1) rotate(1deg);
+            transform: scale(1.05) rotate(1deg);
+            box-shadow: 4px 6px 8px rgba(0,0,0,0.2);
+            background: #fff9c4; /* Slightly lighter yellow on hover */
             color: #111;
-            border-color: #111;
-            background: #f4f0e6;
         }
-
+		
         @media (max-width: 650px) {
             .card {
                 flex-direction: column;
