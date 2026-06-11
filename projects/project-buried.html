@@ -31,21 +31,26 @@
             color: #111;
         }
 
+        /* 1. Main Navigation Container */
         .sticky-nav {
             position: sticky;
             top: 10px;
             z-index: 1000;
-            background: #fff9c4;
-            padding: 10px 20px;
             margin: 0 20px 30px 20px;
+            /* The background, border, and transform have been removed from here */
+        }
+
+        /* 2. The Rotated Background Layer */
+        .sticky-nav::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: #fff9c4;
             border-radius: 2px 15px 5px 20px;
             box-shadow: 2px 4px 10px rgba(0,0,0,0.15);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
             border: 1px solid #ddd;
             transform: rotate(-0.2deg);
+            z-index: -1; /* Keeps it behind the buttons */
         }
 
         .nav-group {
@@ -91,17 +96,29 @@
             margin-right: 15px; 
         }
 
-        /* 1. Fix the Tape to the browser window */
+        .nav-scroller {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 100%;
+            padding: 10px 20px;
+            box-sizing: border-box;
+        }
+
+        /* 4. The Tape */
         .nav-tape {
-            position: fixed; /* Changed from absolute */
-            top: 0px; /* Aligns perfectly with the sticky nav at top: 10px */
+            position: absolute;
+            top: -10px;
             left: 50%;
             width: 120px;
             height: 30px;
-            transform: translateX(-50%) rotate(1deg); /* Centers perfectly */
+            margin-left: -60px;
             background-color: rgba(255, 255, 255, 0.6);
+            transform: rotate(1deg);
             box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-            z-index: 1005; /* Ensures it stays above everything */
+            z-index: 10; /* Ensures it renders over the scrolling buttons */
+            pointer-events: none; /* Allows you to click buttons that scroll underneath it */
         }
 
         /* 2. Turn the dropdown into a centered, floating menu */
@@ -334,20 +351,21 @@
             
             /* -- Navigation Bar: Single Row Adjustments -- */
             .sticky-nav {
+                padding: 0 !important; /* Move padding to the inner scroller */
+            }
+
+            .nav-scroller {
                 flex-direction: row !important;
                 flex-wrap: nowrap !important;
                 justify-content: flex-start !important;
                 padding: 20px 10px 10px 10px !important;
                 gap: 5px;
-                
-                /* Allow horizontal swiping if the screen is exceptionally narrow */
                 overflow-x: auto; 
-                -ms-overflow-style: none;  /* IE and Edge */
-                scrollbar-width: none;  /* Firefox */
+                -ms-overflow-style: none;
+                scrollbar-width: none;
             }
-            
-            /* Hide the scrollbar to maintain the paper aesthetic */
-            .sticky-nav::-webkit-scrollbar {
+
+            .nav-scroller::-webkit-scrollbar {
                 display: none; 
             }
 
@@ -358,12 +376,10 @@
                 gap: 5px !important;
             }
 
-            /* Hide the textual labels ("Sections:", "External Links:") to save space */
             .nav-group span:not(.btn-post-it) {
                 display: none !important;
             }
 
-            /* Shrink post-it buttons and prevent text wrapping */
             .btn-post-it {
                 padding: 4px 10px !important;
                 font-size: 0.8rem !important;
@@ -371,38 +387,23 @@
                 white-space: nowrap; 
             }
 
-            /* Shrink external link icons */
             .btn-post-it img {
                 width: 16px !important;
                 height: 16px !important;
             }
 
-            /* -- General Layout Adjustments (Keep these from before) -- */
-            .header-title h1, .page-title {
-                font-size: 2rem;
+            .nav-dropdown {
+                margin-left: 5px !important;
+                margin-right: 5px !important;
             }
-            .page-title {
-                width: 85%;
-                white-space: normal;
-                padding: 10px;
-            }
-            .post-it, .scrap {
-                padding: 15px;
-                margin: 15px 10px;
-            }
-            .profile-container {
-                width: 100% !important;
-                max-width: 100% !important;
-                height: auto !important;
-                margin-left: auto !important;
-                margin-right: auto !important;
-                float: none !important; 
-            }
-            .intro-row {
-                flex-direction: column;
-            }
-            .masonry-grid {
-                grid-template-columns: 1fr;
+
+            /* Make the dropdown a centered, fixed modal to completely escape clipping */
+            .nav-dropdown-content {
+                position: fixed !important;
+                top: 75px !important; /* Safely drops it below the sticky nav */
+                left: 50% !important;
+                transform: translateX(-50%) rotate(-1.5deg) !important;
+                z-index: 1005 !important;
             }
         }
 		
@@ -412,6 +413,45 @@
 
     <div id="top"></div>
 
+	<nav class="sticky-nav">
+        <div class="nav-tape"></div>
+        
+        <div class="nav-scroller">
+            <div class="nav-group">
+	            <a href="../index.html" class="btn-post-it pink">← Back</a>
+	            <span style="font-weight: bold; font-family: 'Courier New', monospace; margin: 0 10px;">Sections:</span>
+	            <a href="#overview" class="btn-post-it yellow">Overview</a>
+	            <a href="#details" class="btn-post-it blue">Details</a>
+	            <a href="#process" class="btn-post-it green">Process</a>
+	            
+	            <div class="nav-dropdown">
+	                <span class="btn-post-it purple" style="cursor: pointer; transform: rotate(1deg);">Solutions ▼</span>
+	                <div class="nav-dropdown-content purple-note">
+	                    <div class="scrap-tape" style="top: -12px; width: 80px; margin-left: -40px; height: 25px; transform: rotate(-2deg);"></div>
+	                    <a href="#solutions-behaviors" class="btn-post-it purple" style="transform: rotate(-1.5deg);">Encapsulated Behaviors</a>
+	                    <a href="#solutions-modular" class="btn-post-it purple" style="transform: rotate(2deg);">Data Driven Files</a>
+	                </div>
+	            </div>
+	
+	            <a href="#takeaways" class="btn-post-it pink" style="transform: rotate(-1deg);">Key Takeaways</a>
+	        </div>
+	        <div class="nav-group">
+		        <a href="../index.html#projects" class="btn-post-it yellow" style="padding: 5px 10px;" title="Portfolio Projects">Projects</a>
+	            <a href="../index.html#about" class="btn-post-it pink" style="padding: 5px 10px;" title="About Me">About</a>
+	            <span style="font-weight: bold; font-family: 'Courier New', monospace; margin-right: 10px; margin-left: 40px;">External Links:</span>
+	            <a href="https://linkedin.com" target="_blank" class="btn-post-it blue" style="padding: 5px 10px;" title="LinkedIn">
+	                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" width="24" height="24" style="vertical-align: middle; display: block;">
+	            </a>
+	            <a href="https://github.com" target="_blank" class="btn-post-it green" style="padding: 5px 10px;" title="GitHub">
+	                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub" width="24" height="24" style="vertical-align: middle; display: block;">
+	            </a>
+	            <a href="mailto:will316.work@gmail.com" target="_blank" class="btn-post-it yellow" style="padding: 5px 10px;" title="Gmail">
+	                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Gmail" width="24" height="24" style="vertical-align: middle; display: block;">
+	            </a>
+	        </div>
+        </div>
+    </nav>
+	
     <nav class="sticky-nav">
         <div class="nav-tape"></div>
         <div class="nav-group">
