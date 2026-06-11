@@ -136,8 +136,9 @@
             border-bottom-right-radius: 15px 3px;
         }
 
-        .nav-dropdown:hover .nav-dropdown-content {
-            display: block;
+        /* Menu visibility controlled by JavaScript for precise click toggling */
+        .nav-dropdown-content.active {
+            display: block !important;
         }
 
         .nav-dropdown-content a {
@@ -425,8 +426,9 @@
 	            <a href="#process" class="btn-post-it green">Process</a>
 	            
 	            <div class="nav-dropdown">
-	                <span class="btn-post-it purple" style="cursor: pointer; transform: rotate(1deg);">Solutions ▼</span>
-	                <div class="nav-dropdown-content purple-note">
+	                <span class="btn-post-it purple" onclick="toggleMenu(event)" style="cursor: pointer; transform: rotate(1deg);">Solutions ▼</span>
+	                
+	                <div id="solutions-menu" class="nav-dropdown-content purple-note">
 	                    <div class="scrap-tape" style="top: -12px; width: 80px; margin-left: -40px; height: 25px; transform: rotate(-2deg);"></div>
 	                    <a href="#solutions-behaviors" class="btn-post-it purple" style="transform: rotate(-1.5deg);">Encapsulated Behaviors</a>
 	                    <a href="#solutions-modular" class="btn-post-it purple" style="transform: rotate(2deg);">Data Driven Files</a>
@@ -452,42 +454,6 @@
         </div>
     </nav>
 	
-    <nav class="sticky-nav">
-        <div class="nav-tape"></div>
-        <div class="nav-group">
-            <a href="../index.html" class="btn-post-it pink">← Back</a>
-            <span style="font-weight: bold; font-family: 'Courier New', monospace; margin: 0 10px;">Sections:</span>
-            <a href="#overview" class="btn-post-it yellow">Overview</a>
-            <a href="#details" class="btn-post-it blue">Details</a>
-            <a href="#process" class="btn-post-it green">Process</a>
-            
-            <div class="nav-dropdown">
-                <span class="btn-post-it purple" style="cursor: pointer; transform: rotate(1deg);">Solutions ▼</span>
-                <div class="nav-dropdown-content purple-note">
-                    <div class="scrap-tape" style="top: -12px; width: 80px; margin-left: -40px; height: 25px; transform: rotate(-2deg);"></div>
-                    <a href="#solutions-behaviors" class="btn-post-it purple" style="transform: rotate(-1.5deg);">Encapsulated Behaviors</a>
-                    <a href="#solutions-modular" class="btn-post-it purple" style="transform: rotate(2deg);">Data Driven Files</a>
-                </div>
-            </div>
-
-            <a href="#takeaways" class="btn-post-it pink" style="transform: rotate(-1deg);">Key Takeaways</a>
-        </div>
-        <div class="nav-group">
-	        <a href="../index.html#projects" class="btn-post-it yellow" style="padding: 5px 10px;" title="Portfolio Projects">Projects</a>
-            <a href="../index.html#about" class="btn-post-it pink" style="padding: 5px 10px;" title="About Me">About</a>
-            <span style="font-weight: bold; font-family: 'Courier New', monospace; margin-right: 10px; margin-left: 40px;">External Links:</span>
-            <a href="https://linkedin.com" target="_blank" class="btn-post-it blue" style="padding: 5px 10px;" title="LinkedIn">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" width="24" height="24" style="vertical-align: middle; display: block;">
-            </a>
-            <a href="https://github.com" target="_blank" class="btn-post-it green" style="padding: 5px 10px;" title="GitHub">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub" width="24" height="24" style="vertical-align: middle; display: block;">
-            </a>
-            <a href="mailto:will316.work@gmail.com" target="_blank" class="btn-post-it yellow" style="padding: 5px 10px;" title="Gmail">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Gmail" width="24" height="24" style="vertical-align: middle; display: block;">
-            </a>
-        </div>
-    </nav>
-
     <div id="overview" class="container">
         <h1 class="page-title">Buried in Love</h1>
         
@@ -831,6 +797,26 @@
         </div>
 
     </div>
+
+	<script>
+        function toggleMenu(event) {
+            // Prevent the click from immediately bubbling up and triggering the document closer
+            event.stopPropagation(); 
+            
+            // Toggle the menu open and closed
+            document.getElementById("solutions-menu").classList.toggle("active");
+        }
+
+        // Listen for clicks anywhere else on the page
+        document.addEventListener("click", function(event) {
+            var menu = document.getElementById("solutions-menu");
+            
+            // If the menu is open, close it
+            if (menu && menu.classList.contains("active")) {
+                menu.classList.remove("active");
+            }
+        });
+    </script>
 
 </body>
 </html>
