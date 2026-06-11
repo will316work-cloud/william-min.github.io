@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buried in Love | Technical Game Designer</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+	
     <style>
         html {
             scroll-behavior: smooth;
@@ -16,7 +21,8 @@
                 linear-gradient(90deg, transparent 60px, #ff8c8c 60px, #ff8c8c 62px, transparent 62px),
                 linear-gradient(#cfd8dc 1px, transparent 1px);
             background-size: 100% 30px;
-            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', cursive, sans-serif;
+            font-family: 'Patrick Hand', 'Comic Sans MS', cursive, sans-serif;
+            font-size: 1.25rem; /* Bumps up the default desktop text size */
             color: #2c2c2c;
             margin: 0;
             padding: 0;
@@ -349,7 +355,11 @@
 
 		/* --- Mobile Responsiveness Overrides --- */
         @media (max-width: 768px) {
-            
+
+			body {
+                font-size: 1rem;
+            }
+			
             /* -- Navigation Bar: Single Row Adjustments -- */
             .sticky-nav {
                 padding: 0 !important; /* Move padding to the inner scroller */
