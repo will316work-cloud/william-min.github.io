@@ -148,13 +148,13 @@
             pointer-events: none; /* Allows you to click buttons that scroll underneath it */
         }
 
-        /* 2. Turn the dropdown into a centered, floating menu */
+        /* 2. Turn the dropdown into a floating menu anchored to its button */
         .nav-dropdown-content {
             display: none;
-            position: fixed; /* Breaks out of the scroll container */
-            top: 65px; /* Drops it just beneath the sticky nav */
+            position: absolute; /* Changed from 'fixed' so it stays with the button */
+            top: 45px; /* Drops it just beneath the button */
             left: 50%;
-            transform: translateX(-50%) rotate(-1.5deg); /* Centers it globally */
+            transform: translateX(-50%) rotate(-1.5deg); /* Centers it relative to the button */
             padding: 15px;
             box-shadow: 3px 5px 10px rgba(0,0,0,0.2);
             z-index: 1005;
@@ -487,7 +487,7 @@
 	            <a href="#process" class="btn-post-it green">Process</a>
 	            
 	            <div class="nav-dropdown">
-	                <span class="btn-post-it purple" onclick="toggleMenu(event)" style="cursor: pointer; transform: rotate(1deg);">Solutions ▼</span>
+	                <span id="solutions-btn" class="btn-post-it purple" onclick="toggleMenu(event)" style="cursor: pointer; transform: rotate(1deg);">Solutions ▼</span>
 	                
 	                <div id="solutions-menu" class="nav-dropdown-content purple-note">
 	                    <div class="scrap-tape" style="top: -12px; width: 80px; margin-left: -40px; height: 25px; transform: rotate(-2deg);"></div>
@@ -873,6 +873,7 @@
     </div>
 
 	<script>
+		
         function toggleMenu(event) {
             // Prevent the click from immediately bubbling up and triggering the document closer
             event.stopPropagation(); 
@@ -890,6 +891,42 @@
                 menu.classList.remove("active");
             }
         });
+
+		
+
+		function toggleMenu(event) {
+            // Prevent the click from immediately bubbling up and triggering the document closer
+            event.stopPropagation(); 
+            
+            var menu = document.getElementById("solutions-menu");
+            var btn = document.getElementById("solutions-btn");
+
+            // Toggle the menu open and closed
+            menu.classList.toggle("active");
+
+            // Toggle the arrow based on whether the menu is active
+            if (menu.classList.contains("active")) {
+                btn.innerHTML = "Solutions ▲";
+            } else {
+                btn.innerHTML = "Solutions ▼";
+            }
+        }
+
+        // Listen for clicks anywhere else on the page
+        document.addEventListener("click", function(event) {
+            var menu = document.getElementById("solutions-menu");
+            var btn = document.getElementById("solutions-btn");
+            
+            // If the menu is open, close it and reset the arrow
+            if (menu && menu.classList.contains("active")) {
+                menu.classList.remove("active");
+                
+                if (btn) {
+                    btn.innerHTML = "Solutions ▼";
+                }
+            }
+        });
+		
     </script>
 
 </body>
