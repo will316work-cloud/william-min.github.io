@@ -152,7 +152,7 @@
         .nav-dropdown-content {
             display: none;
             position: absolute; /* Changed from 'fixed' so it stays with the button */
-            top: 45px; /* Drops it just beneath the button */
+            top: 75px; /* Drops it just beneath the button */
             left: 50%;
             transform: translateX(-50%) rotate(-1.5deg); /* Centers it relative to the button */
             padding: 15px;
@@ -748,7 +748,7 @@
 			
         </div>
 
-        <div id="solutions-modular" class="scrap blue-note" style = "margin-top:50px; margin-bottom:70px; transform: rotate(-2deg)">
+        <div id="solutions-modular" class="scrap blue-note" style = "margin-top:50px; margin-bottom:70px; transform: rotate(-.2deg)">
             <div class="scrap-tape" style="transform: rotate(1deg);"></div>
             <h2>Data-Driven Files</h2>
             <p>We planned for at least two campaigns, each featuring dozens of lines and characters exhibiting a wide range of emotions.</p>
@@ -878,26 +878,6 @@
             // Prevent the click from immediately bubbling up and triggering the document closer
             event.stopPropagation(); 
             
-            // Toggle the menu open and closed
-            document.getElementById("solutions-menu").classList.toggle("active");
-        }
-
-        // Listen for clicks anywhere else on the page
-        document.addEventListener("click", function(event) {
-            var menu = document.getElementById("solutions-menu");
-            
-            // If the menu is open, close it
-            if (menu && menu.classList.contains("active")) {
-                menu.classList.remove("active");
-            }
-        });
-
-		
-
-		function toggleMenu(event) {
-            // Prevent the click from immediately bubbling up and triggering the document closer
-            event.stopPropagation(); 
-            
             var menu = document.getElementById("solutions-menu");
             var btn = document.getElementById("solutions-btn");
 
@@ -912,19 +892,30 @@
             }
         }
 
-        // Listen for clicks anywhere else on the page
-        document.addEventListener("click", function(event) {
+        // A helper function to guarantee the menu and arrow close cleanly together
+        function closeMenu() {
             var menu = document.getElementById("solutions-menu");
             var btn = document.getElementById("solutions-btn");
             
-            // If the menu is open, close it and reset the arrow
             if (menu && menu.classList.contains("active")) {
                 menu.classList.remove("active");
-                
                 if (btn) {
                     btn.innerHTML = "Solutions ▼";
                 }
             }
+        }
+
+        // 1. Close the menu if the user clicks anywhere else on the page
+        document.addEventListener("click", function(event) {
+            closeMenu();
+        });
+
+        // 2. Explicitly close the menu and reset the arrow when a user clicks a dropdown link
+        var dropdownLinks = document.querySelectorAll("#solutions-menu a");
+        dropdownLinks.forEach(function(link) {
+            link.addEventListener("click", function(event) {
+                closeMenu();
+            });
         });
 		
     </script>
