@@ -450,12 +450,18 @@
 	            float: none !important; /* Fixes the floating About Me picture */
 	            box-sizing: border-box;
 	        }
-	
-	        /* Forces any side-by-side content rows to stack vertically on phones */
-	        .intro-row {
-	            flex-direction: column !important;
-	            align-items: center !important;
-	        }
+
+			/* Forces any side-by-side content rows to stack vertically on phones */
+            .intro-row {
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+            
+            /* Overrides the inline 30% and 70% widths so they fill the mobile screen */
+            .intro-row .scrap {
+                width: 100% !important;
+                box-sizing: border-box !important;
+            }
 	        
 	        /* Ensures the project board snapshots don't overflow their cards */
 	        .project-snapshot {
