@@ -60,8 +60,8 @@
 	        <h1>Buried in Love</h1>
 	        
 	        <div class="meta-tags">
-	            <span class="tag">Role: Technical Design</span>
-	            <span class="tag">Genre: Interactive Fiction / Visual Novel</span>
+	            <span class="btn-post-it yellow" style="cursor: default;">Interactive Fiction, Visual Novel, Psychological Horror</span>
+	            <span class="btn-post-it green" style="cursor: default;"><strong>Technical Designer</strong>, Systems Engineer</span>
 	        </div>
 			
 		</div>
@@ -86,10 +86,10 @@
 				<div class="scrap-tape" style="transform: rotate(-3deg);"></div>
 				<h3>Features</h3>
 				<ul>
-					<li>Choose between Ben or Jane, and go out on your first (and last) date!</li>
+					<li>Choose between Ben or Jane and go on your first (and last) date.</li>
 					<li>Engage in character-unique minigames (Ben → Fishing, Jane → Speed Typing).</li>
 					<li>Make meaningful choices during your date with your character of choice.</li>
-					<li><em>Be warned though:</em> not everything is as it appears in this seemingly colorful, innocent world...</li>
+					<li><em>Be warned:</em> not everything is as it appears in this seemingly colorful, innocent world.</li>
 				</ul>
 
 				<a href="#top" class="scroll-top">↑ Top</a>
@@ -103,14 +103,15 @@
                 <div class="scrap-tape" style="transform: rotate(4deg);"></div>
                 <h3>Project Goals</h3>
 		        <ul>
-                    <li>Create dialogue UI that features the following:</li>
+                    <li>Create a dialogue UI featuring:</li>
               	    <ul>
-                    	<li>Multiple character sprites & character names (including player and narrator).</li>
-                    	<li>Special font settings for text.</li>
+                    	<li>Multiple character sprites</li>
+                    	<li>Multiple character names (including the player and narrator)</li>
+                    	<li>Special font settings for text</li>
                     </ul>
-		            <li>Automated text and character transition animations.</li>
-                    <li>Individual lines and choice sections.</li>
-                    <li>Seamless transitions between dialogue sections and minigame sections.</li>
+		            <li>Automate text and character transition animations.</li>
+                    <li>Handle individual lines and choice sections.</li>
+                    <li>Enable easy transitions between dialogue sections and minigame sections.</li>
 		        </ul>
 
 				<a href="#top" class="scroll-top">↑ Top</a>
@@ -120,7 +121,7 @@
                 <div class="scrap-tape" style="transform: rotate(-1deg);"></div>
                 <h3>Constraints</h3>
                 <ul>
-                    <li><strong>Time:</strong> 3 weeks to program the prototype before content integration.</li>
+                    <li><strong>Time:</strong> 3 weeks to build a prototype before content integration.</li>
                     <li><strong>Team:</strong> Sole programmer assigned to the dialogue system.</li>
                 </ul>
 
@@ -132,15 +133,18 @@
             <div class="scrap-tape"></div>
             <h2>The Process</h2>
             <ol>
-                <li>Take art and UI inspiration from interactive fiction games.</li>
+                <li>Drew art and UI inspiration from interactive fiction games like <em>Ace Attorney</em>.</li>
 
-		        <li>Implement overarching dialogue system.</li>
+		        <li>Implemented the overarching dialogue system:</li>
 		        <ul>
-		            <li>Scriptable objects that manage dialogue lines and character sprite sheets.</li>
-		            <li>Processor scripts that render dialogue format, character sprites, their transition animations, and more.</li>
+		            <li>Scriptable objects to manage dialogue lines and character sprite sheets</li>
+		            <li>Processor scripts to render dialogue formatting, character sprites, transition animations, and more</li>
 		        </ul>
 
-		        <li>Ensure files and scripts have intuitive variables for designers to fill with assets</li>
+		        <li>Ensured files and scripts had intuitive variables for designers to fill with assets:</li>
+		        <ul>
+		            <li>Incorporated feedback on UI adjustments and serialized options in code</li>
+		        </ul>
             </ol>
             
             <a href="#top" class="scroll-top">↑ Top</a>
@@ -149,7 +153,7 @@
         <div id="solutions-behaviors" class="scrap yellow-note" style = "margin-top:50px; margin-bottom:70px; transform: rotate(1deg)">
             <div class="scrap-tape" style="transform: rotate(-1deg);"></div>
             <h2>Encapsulating Behaviors</h2>
-            <p>Interactive fiction games require scrolling text, stylized fonts, sprite switching, and transformative animations (entering, exiting, focusing).</p>
+            <p>Encapsulated MonoBehaviour scripts into special object behaviors, and classes into special value types. Interactive fiction games typically feature scrolling text, stylized font sections, switching character sprites, and transformative animations for entering, exiting, and focusing during conversation.</p>
             
 		    <div class = "intro-row" style = "justify-content: center; align-items: center; margin-top: 30px; margin-bottom: 40px">
 		
@@ -165,10 +169,7 @@
             <h3>Thought Process</h3>
 
 			<ul>
-				<li>Wrote down a checklist of features and code assets based on team feedback and needs.</li>
-				<ul>
-					<li>Drew from references from inspirational games like <em>Ace Attorney</em></li>
-				</ul>
+				<li>Compiled a checklist of features and code assets based on team feedback and needs, drawing from references like <em>Ace Attorney</em>.</li>
 			</ul>
 
 			<div class = "intro-row" style = "justify-content: center; align-items: center; margin-top: 30px; margin-bottom: 40px">
@@ -183,9 +184,9 @@
 			</div>
 
 			<ul>
-				<li>Used <strong>Component-based architecture</strong> enabled by Unity to split the properties of the dialogue system into Monobehaviors and Structs.</li>
+				<li>Used Unity's <strong>component-based architecture</strong> to split dialogue system properties into MonoBehaviours and structs:</li>
 				<ul>
-					<li><strong>Monobehaviors</strong> handled in-scene objects and UI (sprites, buttons, text, spawners, etc.).</li>
+					<li><strong>MonoBehaviours</strong> handled in-scene objects and UI (sprites, buttons, text, spawners, etc.).</li>
 				</ul>
 			</ul>
 
@@ -216,7 +217,7 @@
 
 			<ul>
 				<ul>
-					<li><strong>Structs</strong> carried bundled data and used it when called to process and return new data.</li>
+					<li><strong>Structs</strong> carried groups of related data and provided means to process and return new data from it.</li>
 				</ul>
 			</ul>
 
@@ -246,11 +247,11 @@
 			</div>
 
 			<ul>
-				<li>Facilitated relations between classes using the <strong>Observer Pattern</strong>.</li>
+				<li>Facilitated relations between classes through the <strong>observer pattern</strong>:</li>
 				<ul>
-					<li>Used <code> Action </code> and <code> UnityEvent </code> objects that are called on notable moments (ex. starting/ending a process).</li>
-					<li>Designed methods as "wires" plugged into delegates, actions, and events on other objects.</li>
-					<li>Relied less on constant <code> Update() </code> loops and more on event-triggered actions.</li>
+					<li>Used <code> Action </code> and <code> UnityEvent </code> objects triggered at notable moments, like the start and end of a process.</li>
+					<li>Had methods act as wires that could be plugged into delegates, actions, and events on other objects.</li>
+					<li>Relied less on constant <code> Update() </code> loops for triggered actions.</li>
 				</ul>
 			</ul>
 
@@ -275,10 +276,10 @@
 			<ul>
 	            <h3>Results</h3>
 	            <ul>
-	                <li>Created wrapper scripts that change given values based on conditions, handle effects from changing variables, and trigger events.</li>
-	                <li>Built spawner types to handle spawning and storing spawned objects in the scene.</li>
-	                <li>Character sprites can dynamically fade in/out, reveal/fade to black, grow/shrink, and switch sprites between lines effortlessly.</li>
-	                <li>Dialogue scrolls out considering special typography, with full player skipping functionality.</li>
+	                <li>Wrapper scripts that change a given value based on conditions, handle effects from variable changes, and trigger events accordingly.</li>
+	                <li>Spawner types to handle spawning and storing spawned objects.</li>
+	                <li>Character sprites that fade in and out, reveal or fade into black, grow and shrink, and switch between lines.</li>
+	                <li>Dialogue that scrolls out with special typology in mind, skippable by the player when they want to proceed.</li>
 	            </ul>
 			</ul>
 			
@@ -289,12 +290,12 @@
         <div id="solutions-modular" class="scrap blue-note" style = "margin-top:50px; margin-bottom:70px; transform: rotate(-.5deg)">
             <div class="scrap-tape" style="transform: rotate(1deg)"></div>
             <h2>Data-Driven Files</h2>
-            <p>We planned for at least two campaigns, each featuring dozens of lines and characters exhibiting a wide range of emotions.</p>
+            <p>Built modular scripts and data-driven files for designers to easily integrate assets. We planned for at least two campaigns, each featuring dozens of lines and characters spanning a wide range of emotions and states depicted through sprites.</p>
             
             <h3>Thought Process</h3>
 
 			<ul>
-                <li><strong>Dialogue Skits</strong> contain lines to queue through before seamlessly moving to the next skit.</li>
+                <li><strong>Dialogue Skits</strong> queue lines before moving to the next skit.</li>
 			</ul>
 
 			<div class = "intro-row" style = "justify-content: center; align-items: center; margin-top: 30px; margin-bottom: 40px">
@@ -309,7 +310,7 @@
 			</div>
 
 			<ul>
-                <li><strong>Dialogue Lines</strong> contain the text line, plus toggles for speaker names and character sprite changes between lines.</li>
+                <li><strong>Dialogue Lines</strong> contain the line text plus toggles for speaker names and sprite changes between lines.</li>
 			</ul>
 
 			<div class = "intro-row" style = "justify-content: center; align-items: center; margin-top: 30px; margin-bottom: 40px">
@@ -339,7 +340,7 @@
 			</div>
 
 			<ul>
-                <li><strong>Character Profiles</strong> contain a name and sprites associated with the character’s specific emotions.</li>
+                <li><strong>Character Profiles</strong> each contain a name and sprites for the character's emotions.</li>
 			</ul>
 
 			<div class = "intro-row" style = "justify-content: center; align-items: center; margin-top: 30px; margin-bottom: 40px">
@@ -361,7 +362,7 @@
 			</div>
 
 			<ul>
-                <li><strong>Choice Skits</strong> contain one prompt line and various choice buttons.</li>
+                <li><strong>Choice Skits</strong> contain one line and various choice prompts.</li>
 			</ul>
 
 			<div class = "intro-row" style = "justify-content: center; align-items: center; margin-top: 30px; margin-bottom: 40px">
@@ -377,8 +378,8 @@
 
             <h3>Results</h3>
             <ul>
-                <li>Characters and dialogue skits can be created and modified like spreadsheets right in the game engine.</li>
-                <li>Designers (non-programmers) can instantly identify where to place new and changed assets without needing to touch the core code.</li>
+                <li>Characters and dialogue skits can be created and edited like spreadsheets within the game engine.</li>
+                <li>Non-programmers can easily identify where to place new or changed assets.</li>
             </ul>
 			
             <a href="#top" class="scroll-top">↑ Top</a>
@@ -389,9 +390,9 @@
             <div class="scrap-tape" style="transform: rotate(-1deg);"></div>
             <h2>Key Takeaways</h2>
             <ul>
-                <li>Being attentive to the project’s direction required quick sweeping changes; making the scripts and files as modular as possible was absolutely pivotal in surviving development.</li>
-                <li>Implementing events on critical actions enabled triggering other systems with minimal coupling, making connections incredibly easy to change.</li>
-                <li>I was enlightened by the many tangible advantages of software design concepts like component-based architecture, the observer pattern, and the single responsibility principle.</li>
+                <li>The project's direction required quick, sweeping changes, so keeping scripts and files as modular as possible was pivotal to development.</li>
+                <li>Implementing events on critical actions enabled triggering other systems with minimal coupling and easy reconfiguration.</li>
+                <li>This project showed me the tangible advantages of software design concepts like component-based architecture, the observer pattern, and single responsibility principles.</li>
             </ul>
             <a href="#top" class="scroll-top">↑ Top</a>
         </div>
