@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghosts in the Toy Box | Technical Game Designer</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../page-assets/styles/site.css">
+</head>
+<body>
+
+    <div id="top"></div>
+
+	<nav class="sticky-nav">
+        <div class="nav-tape"></div>
+
+        <div class="nav-scroller">
+            <div class="nav-group">
+	            <a href="../index.html" class="btn-post-it pink">← Back</a>
+	            <span style="font-weight: bold; font-family: 'Caveat Brush', sans-serif; margin: 0 10px; font-size: 1.8rem">Sections:</span>
+	            <a href="#details" class="btn-post-it blue">Details</a>
+	            <a href="#process" class="btn-post-it green">Process</a>
+
+	            <div class="nav-dropdown">
+	                <span id="solutions-btn" class="btn-post-it purple" onclick="toggleMenu(event)" style="cursor: pointer; transform: rotate(1deg);">Solutions ▼</span>
+
+	                <div id="solutions-menu" class="nav-dropdown-content purple-note">
+	                    <div class="scrap-tape" style="top: -12px; width: 80px; margin-left: -40px; height: 25px; transform: rotate(-2deg);"></div>
+	                    <a href="#solutions-objective" class="btn-post-it purple" style="transform: rotate(-1.5deg);">Tablet Objective</a>
+	                    <a href="#solutions-level" class="btn-post-it purple" style="transform: rotate(2deg);">Level Design</a>
+	                    <a href="#solutions-enemies" class="btn-post-it purple" style="transform: rotate(-1deg);">Enemy Design</a>
+	                    <a href="#solutions-upgrades" class="btn-post-it purple" style="transform: rotate(1.5deg);">Upgrades</a>
+	                </div>
+	            </div>
+
+	            <a href="#takeaways" class="btn-post-it pink" style="transform: rotate(-1deg);">Key Takeaways</a>
+	        </div>
+	        <div class="nav-group">
+		        <a href="../index.html#projects" class="btn-post-it yellow" style="padding: 5px 10px;" title="Portfolio Projects">Projects</a>
+	            <a href="../index.html#about" class="btn-post-it pink" style="padding: 5px 10px;" title="About Me">About</a>
+	            <span style="font-weight: bold; font-family: 'Caveat Brush', sans-serif; margin-right: 10px; margin-left: 40px; font-size: 1.8rem">External Links:</span>
+	            <a href="https://www.linkedin.com/in/william-min-6ba4bb243/" target="_blank" class="btn-post-it blue" style="padding: 5px 10px;" title="LinkedIn">
+	                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" width="24" height="24" style="vertical-align: middle; display: block;">
+	            </a>
+	            <a href="https://github.com/will316work-cloud?tab=repositories" target="_blank" class="btn-post-it green" style="padding: 5px 10px;" title="GitHub">
+	                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub" width="24" height="24" style="vertical-align: middle; display: block;">
+	            </a>
+	            <a href="mailto:will316.work@gmail.com" target="_blank" class="btn-post-it yellow" style="padding: 5px 10px;" title="Gmail">
+	                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Gmail" width="24" height="24" style="vertical-align: middle; display: block;">
+	            </a>
+	        </div>
+        </div>
+    </nav>
+
+    <div class="container">
+
+		<div class="header-title">
+
+	        <h1>Ghosts in the Toy Box</h1>
+
+	        <div class="meta-tags">
+	            <span class="btn-post-it yellow" style="cursor: default;">Survival Horror, Roguelike, 2D Top-Down</span>
+	            <span class="btn-post-it green" style="cursor: default;"><strong>Game Designer</strong>, Level Designer, Lead Game Engineer</span>
+	        </div>
+
+		</div>
+
+		<div class="profile-container" style="transform: rotate(1deg); width: 100%; margin-top: 20px; margin-bottom: 40px;">
+			<div class="profile-tape" style="transform: rotate(-1deg)"></div>
+			<div class="profile-pic">[ Ghosts in the Toy Box <br> Gameplay Screenshot ]</div>
+		</div>
+
+		<div class="intro-row">
+
+			<div class="scrap yellow-note" style="width: 30%;">
+				<div class="scrap-tape"></div>
+				<p style="font-style: italic; text-align: center;">"You are trapped in a sealed haunted toy box as a tiny toy in a 2D top-down survival horror roguelike. Every toy before you who tried to escape returned as a possessed plaything corpse. You only have a toy gun and a tablet that reveals the monsters' visions. Will that be enough to truly escape?"</p>
+
+				<a href="#top" class="scroll-top">↑ Top</a>
+			</div>
+
+			<div id="details" class="scrap pink-note" style="width: 70%;">
+				<div class="scrap-tape" style="transform: rotate(-3deg);"></div>
+				<h3>Features</h3>
+				<ul>
+					<li>Find and vanquish invisible spirits by seeing through their visions with a frog tablet.</li>
+					<li>Fire a pop gun, deploy night lights, and throw marbles collected from destroyed spirits.</li>
+					<li>Evade a statue enemy and dart traps that grow stronger with each destroyed spirit.</li>
+					<li>Escape a claustrophobic, randomly generated toy box by killing all the spirits and reaching the exit.</li>
+				</ul>
+
+				<a href="#top" class="scroll-top">↑ Top</a>
+			</div>
+
+        </div>
+
+        <div class="masonry-grid">
+
+            <div class="scrap blue-note">
+                <div class="scrap-tape" style="transform: rotate(4deg);"></div>
+                <h3>Project Goals</h3>
+		        <ul>
+                    <li>Create an objective that necessitates heavy use of the vision-revealing frog tablet.</li>
+                    <li>Design challenging enemies that test the player's use of the tablet and navigation in a dark, cramped maze.</li>
+                    <li>Demonstrate my familiarity with and passion for designing enemies as core drivers of gameplay identity.</li>
+		        </ul>
+
+				<a href="#top" class="scroll-top">↑ Top</a>
+            </div>
+
+            <div class="scrap green-note">
+                <div class="scrap-tape" style="transform: rotate(-1deg);"></div>
+                <h3>Constraints</h3>
+                <ul>
+                    <li><strong>Time:</strong> 15 weeks of development</li>
+                    <ul>
+                        <li>Prototyping (4 weeks)</li>
+                        <li>Vertical slice deadline (2 weeks)</li>
+                        <li>Alpha deadline (2 weeks)</li>
+                        <li>Beta deadline (2 weeks)</li>
+                        <li>Release candidate deadline (3 weeks)</li>
+                    </ul>
+                    <li><strong>Deliverable:</strong> Must create and post a trailer alongside the release candidate.</li>
+                    <li><strong>Team:</strong> 3 total developers (2 programmers, 1 sound designer/composer).</li>
+                </ul>
+
+				<a href="#top" class="scroll-top">↑ Top</a>
+            </div>
+        </div>
+
+        <div id="process" class="scrap purple-note" style = "margin-top:50px; margin-bottom:70px; transform: rotate(-1deg)">
+            <div class="scrap-tape"></div>
+            <h2>The Process</h2>
+            <ol>
+                <li>Created prototypes and drew insight from playtests.</li>
+                <li>Built base abilities, interactables, and environment systems for the core gameplay loop.</li>
+                <li>Built one enemy that requires tablet engagement and another that requires environmental awareness.</li>
+                <li>Polished game elements with visual effects, lighting, sound effects, music, and audio managers.</li>
+            </ol>
+
+            <a href="#top" class="scroll-top">↑ Top</a>
+        </div>
+
+        <div id="solutions-objective" class="scrap yellow-note" style = "margin-top:50px; margin-bottom:70px; transform: rotate(1deg)">
+            <div class="scrap-tape" style="transform: rotate(-1deg);"></div>
+            <h2>An Objective That Requires the Tablet</h2>
+            <p>Made invisible spirits — which need to be destroyed — visible on the map only through the tablet.</p>
+
+            <h3>Thought Process</h3>
+
+			<ul>
+				<li>A big challenge was incentivizing players to use the novel mechanic of seeing through enemy visions.</li>
+				<li>An enemy invisible to the naked eye but visible through the tablet would push players to rely on it as their main survival tool.</li>
+				<li>The invisible spirit aesthetic reinforced the haunted toy box theme.</li>
+			</ul>
+
+			<div class="profile-container" style="width: 100%; margin: 20px 0;">
+				<div class="profile-tape"></div>
+				<div class="profile-pic">[ Placeholder: Frog Tablet Vision Screenshot ]</div>
+			</div>
+
+            <h3>Results</h3>
+            <ul>
+                <li>Invisible spirits made engaging with the frog tablet fun and meaningful.</li>
+                <li>Some playtesters found the tablet confusing at first, but quickly recognized the objective.</li>
+            </ul>
+
+            <a href="#top" class="scroll-top">↑ Top</a>
+        </div>
+
+        <div id="solutions-level" class="scrap blue-note" style = "margin-top:50px; margin-bottom:70px; transform: rotate(-.5deg)">
+            <div class="scrap-tape" style="transform: rotate(1deg)"></div>
+            <h2>Cramped, Randomized Level Design</h2>
+            <p>The toy box generates many arrangements of colored, lego-like brick tiles across a 5x5 area.</p>
+
+            <h3>Thought Process</h3>
+
+			<ul>
+				<li>Designed the level generator to mix open and cramped tiles, creating potential hiding spots for the invisible spirits.</li>
+			</ul>
+
+			<div class="profile-container" style="width: 100%; margin: 20px 0;">
+				<div class="profile-tape" style="top:-20px"></div>
+				<div class="profile-pic">[ Placeholder: Level Tile Examples ]</div>
+			</div>
+
+			<ul>
+				<li>Skewed generation toward more enclosed tiles than open ones for claustrophobic navigation through the small maze.</li>
+			</ul>
+
+			<div class="profile-container" style="width: 100%; margin: 20px 0;">
+				<div class="profile-tape" style="top:-20px"></div>
+				<div class="profile-pic">[ Placeholder: Level Generation GIF ]</div>
+			</div>
+
+            <h3>Results</h3>
+            <ul>
+                <li>The cramped tiles created many hiding places for spirits and player alike.</li>
+                <li>The randomized tiles turned finding spirits into a test of visual memory.</li>
+                <li>The claustrophobic layout made it easy for enemies and other dangers to sneak up on the player.</li>
+            </ul>
+
+            <a href="#top" class="scroll-top">↑ Top</a>
+        </div>
+
+        <div id="solutions-enemies" class="scrap purple-note" style = "margin-top:50px; margin-bottom:70px; transform: rotate(0.5deg)">
+            <div class="scrap-tape" style="transform: rotate(-2deg);"></div>
+            <h2>Environmental Enemy and Seeker Enemy</h2>
+            <p>Created a cymbal monkey toy that switches bodies with, and blends into, a set of decoy clones, plus a swarm of clown dart toys that periodically fire darts.</p>
+
+            <h3>Thought Process</h3>
+
+			<ul>
+				<li>Enemies act as dangers in the maze — some roam to search and chase the player, others serve as obstacles that slow down or box players in.</li>
+				<ul>
+					<li>The cymbal monkey chases the player when unobserved while blending in with its scattered clones.</li>
+				</ul>
+			</ul>
+
+			<div class="profile-container" style="width: 100%; margin: 20px 0;">
+				<div class="profile-tape"></div>
+				<div class="profile-pic">[ Placeholder: Cymbal Monkey Chase + Frog Tablet Teleport GIF ]</div>
+			</div>
+
+			<ul>
+				<ul>
+					<li>The clown dart shooters spawn in different locations and directions, threatening multiple sightlines at once.</li>
+				</ul>
+			</ul>
+
+			<div class="profile-container" style="width: 100%; margin: 20px 0;">
+				<div class="profile-tape" style="top:-20px"></div>
+				<div class="profile-pic">[ Placeholder: Multiple Clown Dart Shooters Firing GIF ]</div>
+			</div>
+
+			<ul>
+				<ul>
+					<li>Together, the dart shooters can box in the player while the cymbal monkey closes in as they're occupied dodging both.</li>
+				</ul>
+				<li>Enemies either require checking the frog tablet or make the environment more dangerous, splitting the player's attention between the tablet and navigation.</li>
+				<ul>
+					<li>Without getting hurt, the cymbal monkey's position can only be confirmed by checking its vision on the frog tablet.</li>
+				</ul>
+			</ul>
+
+			<div class="profile-container" style="width: 100%; margin: 20px 0;">
+				<div class="profile-tape"></div>
+				<div class="profile-pic">[ Placeholder: Cymbal Monkey on Frog Tablet GIF ]</div>
+			</div>
+
+			<ul>
+				<ul>
+					<li>The clown dart shooters make certain sightlines dangerous to linger on and check the tablet, especially while evading the cymbal monkey.</li>
+				</ul>
+			</ul>
+
+			<div class="profile-container" style="width: 100%; margin: 20px 0;">
+				<div class="profile-tape" style="top:-20px"></div>
+				<div class="profile-pic">[ Placeholder: Clown Dart Shooting in View GIF ]</div>
+			</div>
+
+			<ul>
+				<li>To keep these interactions intimidating but not punishing, implemented a health bar and invincibility frames — an unexpected hit or a surrounded position doesn't end the run outright, but signals the player to retreat, regroup, and avoid repeating the mistake.</li>
+				<ul>
+					<li>The player has 10 health.</li>
+					<li>The cymbal monkey deals 3 damage on contact.</li>
+					<li>Clown darts deal 1 damage.</li>
+				</ul>
+			</ul>
+
+            <h3>Results</h3>
+            <ul>
+                <li>Playtesters were startled repeatedly without feeling too frustrated when they died after failing to dodge danger too many times.</li>
+                <li>Playtesters stayed focused and vigilant throughout.</li>
+                <li>Playtesters tried killing the enemies, but to no avail.</li>
+            </ul>
+
+            <a href="#top" class="scroll-top">↑ Top</a>
+        </div>
+
+        <div id="solutions-upgrades" class="scrap green-note" style = "margin-bottom:70px; transform: rotate(-1deg)">
+            <div class="scrap-tape" style="transform: rotate(1.5deg);"></div>
+            <h2>Upgrades for Player and Enemies</h2>
+            <p>Destroying a spirit grants the player items and either spawns a new enemy or enhances an existing enemy's abilities or behavior.</p>
+
+			<div class="profile-container" style="width: 100%; margin: 20px 0;">
+				<div class="profile-tape"></div>
+				<div class="profile-pic">[ Placeholder: Collecting Items After Destroying Spirit GIF ]</div>
+			</div>
+
+			<div class="profile-container" style="width: 100%; margin: 20px 0;">
+				<div class="profile-tape" style="top:-20px"></div>
+				<div class="profile-pic">[ Placeholder: Regular vs. Fire Darts GIF ]</div>
+			</div>
+
+            <h3>Thought Process</h3>
+
+			<ul>
+				<li>Upgrades relieve tension by restoring item counts from a limited pool.</li>
+				<li>New enemy spawns and upgrades raise tension through more threatening abilities and new tricks:</li>
+				<ul>
+					<li>Clown dart shooters can fire a volley of flaming darts, which light up nearby areas and deal 2 damage each.</li>
+					<li>The cymbal monkey's clones patrol the maze and freeze when looked at without damaging the player, further masking the real toy's approach and teleportation.</li>
+				</ul>
+			</ul>
+
+            <h3>Results</h3>
+            <ul>
+                <li>Playtesters didn't notice rising tension until enemy changes became visually obvious, like the fiery darts, or the cymbal monkey grew generally more intense.</li>
+                <li>Player upgrades were a nice tension release, though their impact was often middling.</li>
+            </ul>
+
+            <a href="#top" class="scroll-top">↑ Top</a>
+        </div>
+
+        <div id="takeaways" class="scrap pink-note" style="margin-bottom: 20px; transform: rotate(1deg)">
+            <div class="scrap-tape" style="transform: rotate(-1deg);"></div>
+            <h2>Key Takeaways</h2>
+            <ul>
+                <li>Introducing players to novel gameplay and mechanics is harder than making it engaging once they're using it.</li>
+                <li>Player gameplay defines the interaction with the game, but level and enemy design and composition are what shape the experience.</li>
+                <li>Frequent iteration and playtesting were the foundation of this project's refinement, quickly surfacing what was worth preserving, revising, or cutting.</li>
+            </ul>
+            <a href="#top" class="scroll-top">↑ Top</a>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; margin-bottom: 40px">
+            <a href="https://witherwarrior817.itch.io/ghosts-in-the-toy-box" target="_blank" class="btn-post-it green footer-btn" style="padding: 15px 30px; transform: rotate(-1.5deg); display: inline-block">
+                🎮 Play Ghosts in the Toy Box on Itch.io!
+            </a>
+        </div>
+
+		<div style="text-align: center; margin-top: 40px; margin-bottom: 40px">
+            <a href="https://github.com/will316work-cloud/Ghosts-in-the-Toy-Box" target="_blank" class="btn-post-it blue footer-btn" style="padding: 15px 30px; transform: rotate(1deg); display: inline-block">
+                Check the Unity scripts on Github!
+            </a>
+        </div>
+
+    </div>
+
+	<script>
+
+        function toggleMenu(event) {
+            // Prevent the click from immediately bubbling up and triggering the document closer
+            event.stopPropagation();
+
+            var menu = document.getElementById("solutions-menu");
+            var btn = document.getElementById("solutions-btn");
+
+            // Toggle the menu open and closed
+            menu.classList.toggle("active");
+
+            // Toggle the arrow based on whether the menu is active
+            if (menu.classList.contains("active")) {
+                btn.innerHTML = "Solutions ▲";
+            } else {
+                btn.innerHTML = "Solutions ▼";
+            }
+        }
+
+        // A helper function to guarantee the menu and arrow close cleanly together
+        function closeMenu() {
+            var menu = document.getElementById("solutions-menu");
+            var btn = document.getElementById("solutions-btn");
+
+            if (menu && menu.classList.contains("active")) {
+                menu.classList.remove("active");
+                if (btn) {
+                    btn.innerHTML = "Solutions ▼";
+                }
+            }
+        }
+
+        // 1. Close the menu if the user clicks anywhere else on the page
+        document.addEventListener("click", function(event) {
+            closeMenu();
+        });
+
+        // 2. Explicitly close the menu and reset the arrow when a user clicks a dropdown link
+        var dropdownLinks = document.querySelectorAll("#solutions-menu a");
+        dropdownLinks.forEach(function(link) {
+            link.addEventListener("click", function(event) {
+                closeMenu();
+            });
+        });
+
+    </script>
+
+</body>
+</html>
