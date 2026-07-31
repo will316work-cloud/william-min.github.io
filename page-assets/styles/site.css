@@ -134,8 +134,10 @@ li { margin-bottom: 12px; }
     align-items: center;
     gap: 5px;
     flex-wrap: wrap;
-    position: relative;
-    z-index: 2;
+    /* No position/z-index here on purpose: giving this its own stacking
+       context would trap .nav-dropdown-content's z-index inside it,
+       preventing the dropdown from rendering above the sibling nav-group's
+       buttons (or the header) as intended. */
 }
 
 .nav-group .nav-label {
@@ -181,8 +183,19 @@ li { margin-bottom: 12px; }
 }
 
 /* --- Buttons (post-it style) ------------------------------------------------ */
+/* .btn-post-it and .scroll-top are the same sticky-note button component;
+   .scroll-top only adds its own layout (block, float-right, size). Both
+   share one hover "highlight" animation: lift + rotate + brighten. */
 
-.btn-post-it {
+/* Base tilt is driven by the --tilt custom property (default -2deg) rather
+   than a hardcoded `transform`. A one-off rotation for a specific button can
+   then be set inline as `style="--tilt: 1.5deg"` WITHOUT touching the
+   `transform` property itself — inline styles always beat stylesheet rules,
+   so if a per-instance tilt were set via inline `transform` instead, it would
+   permanently block the :hover rule below (also a `transform` declaration)
+   from ever applying. Routing tilt through a variable sidesteps that trap. */
+.btn-post-it,
+.scroll-top {
     display: inline-block;
     background: #ffb7b2;
     padding: 8px 18px;
@@ -190,15 +203,10 @@ li { margin-bottom: 12px; }
     color: #111;
     text-decoration: none;
     box-shadow: 2px 3px 5px rgba(0,0,0,0.2);
-    transform: rotate(-2deg);
+    transform: rotate(var(--tilt, -2deg));
     transition: all 0.2s ease;
     border-bottom-right-radius: 15px 3px;
     font-weight: bold;
-}
-
-.btn-post-it:hover {
-    transform: scale(1.05) rotate(1deg);
-    box-shadow: 4px 6px 8px rgba(0,0,0,0.2);
 }
 
 /* Non-interactive sticky notes (Genre/Role/Question tags): same look,
@@ -213,34 +221,29 @@ li { margin-bottom: 12px; }
     display: block;
 }
 
-.btn-post-it.blue { background: #a2e1db; transform: rotate(2deg); }
-.btn-post-it.green { background: #e2f0cb; transform: rotate(-1deg); }
-.btn-post-it.yellow { background: #fdfd96; transform: rotate(1.5deg); }
-.btn-post-it.pink { background: #ffb7b2; transform: rotate(-1.5deg); }
-.btn-post-it.purple { background: #e1bee7; transform: rotate(1deg); }
+.btn-post-it.blue { background: #a2e1db; transform: rotate(var(--tilt, 2deg)); }
+.btn-post-it.green { background: #e2f0cb; transform: rotate(var(--tilt, -1deg)); }
+.btn-post-it.yellow { background: #fdfd96; transform: rotate(var(--tilt, 1.5deg)); }
+.btn-post-it.pink { background: #ffb7b2; transform: rotate(var(--tilt, -1.5deg)); }
+.btn-post-it.purple { background: #e1bee7; transform: rotate(var(--tilt, 1deg)); }
 
 .scroll-top {
     display: block;
     float: right;
-    margin-top: 20px;
+    margin: 20px 0 0 0;
     background: #fdfd96; /* Classic yellow post-it note color */
-    padding: 8px 18px;
-    color: #111;
-    text-decoration: none;
-    box-shadow: 2px 3px 5px rgba(0,0,0,0.2);
-    border-bottom-right-radius: 15px 3px;
-    font-weight: bold;
     font-size: 1.1rem;
-    transform: rotate(-2deg);
-    transition: all 0.2s ease;
     border: none;
 }
 
+/* Placed after the color modifiers above so it wins on equal specificity —
+   otherwise a modifier's own `transform` would silently override the hover
+   state's rotate/scale on colored buttons. */
+.btn-post-it:hover,
 .scroll-top:hover {
-    transform: rotate(1deg);
+    transform: scale(1.05) rotate(1deg);
     box-shadow: 4px 6px 8px rgba(0,0,0,0.2);
-    background: #fff9c4;
-    color: #111;
+    filter: brightness(1.08);
 }
 
 /* --- Notes / scraps (large paper panels with a strip of tape) -------------- */
@@ -463,12 +466,16 @@ li { margin-bottom: 12px; }
 
 /* --- Misc content --------------------------------------------------------- */
 
+/* Matches the .nav-dropdown-content "menu card" look: solid paper card,
+   thin border, drop shadow, clipped bottom-right corner — instead of the
+   old dashed placeholder-style box. */
 details {
-    background: rgba(255, 255, 255, 0.3);
+    background: #ffb7b2; /* Same red as the .btn-post-it.pink Question sticky notes */
     padding: 15px;
-    border-radius: 8px;
+    border-bottom-right-radius: 15px 3px;
     margin-top: 15px;
-    border: 2px dashed #999;
+    border: none;
+    box-shadow: 3px 5px 10px rgba(0,0,0,0.2);
     clear: both;
 }
 
