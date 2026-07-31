@@ -201,6 +201,13 @@ li { margin-bottom: 12px; }
     box-shadow: 4px 6px 8px rgba(0,0,0,0.2);
 }
 
+/* Non-interactive sticky notes (Genre/Role/Question tags): same look,
+   but no hover animation and no click/hover events at all. */
+.btn-post-it.static {
+    cursor: default;
+    pointer-events: none;
+}
+
 .btn-post-it img {
     vertical-align: middle;
     display: block;
