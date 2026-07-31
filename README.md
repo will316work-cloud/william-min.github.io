@@ -1,21 +1,15 @@
-# [Your Name or Studio Name]
-## Game Designer & Systems Architect
+# william-min.github.io
 
-![Portfolio Banner](https://via.placeholder.com/1200x400?text=Insert+an+epic+screenshot+or+your+personal+logo+banner+here)
+Personal portfolio site for **William Min**, Technical Game Designer — live at [william-min.github.io](https://william-min.github.io).
 
-> "Crafting immersive worlds through elegant systems and player-centric design."
+Built as static HTML/CSS (hand-styled "corkboard / sticky notes" theme) and deployed automatically to GitHub Pages via [`.github/workflows/jekyll-gh-pages.yml`](.github/workflows/jekyll-gh-pages.yml) on every push to `main`.
 
----
+## Contents
 
-## 🕹️ About Me
-Hi, I'm **[Your Name]**! I am a passionate Game Designer specializing in [e.g., Level Design / Systems Design / Combat Balance]. I love turning complex mechanics into intuitive, unforgettable player experiences. 
+- [`index.html`](index.html) — homepage with a Projects Board and an About Me section (bio + hobbies: drawing, cooking, skiing, golfing)
+- [`projects/project-buried.html`](projects/project-buried.html) — case study for **Buried in Love**, an interactive fiction dialogue system built in Unity/C#
+- [`page-assets/`](page-assets/) — images used across the site, split into `front-page/` and `project-buried/`
 
-* **Top Skills:** Level Design (Unity/Unreal), C# Scripting, Rapid Prototyping, Economy Balancing.
-* **Currently Learning:** Advanced AI behaviors and procedural generation.
+## Development
 
----
-
-## 🚀 Projects
-*Click on any project panel below to view the full design breakdown, post-mortem, and gameplay clips.*
-
-### 🛠️ Featured Work
+Static site, no build step required for local editing — just open `index.html` in a browser. Pushing to `main` triggers the Jekyll GitHub Pages workflow to build and deploy.
