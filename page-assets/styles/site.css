@@ -402,8 +402,25 @@ li { margin-bottom: 12px; }
     margin-bottom: 10px;
 }
 
+.project-dates {
+    font-family: 'Patrick Hand', sans-serif;
+    font-size: 0.9rem;
+    font-weight: normal;
+    color: #555;
+    margin-left: 8px;
+}
+
 .card-content p {
     margin-bottom: 15px;
+}
+
+.card-content ul {
+    margin-top: 0;
+}
+
+h3 + ul,
+h3 + ol {
+    margin-top: 6px;
 }
 
 /* --- Layout helpers ---------------------------------------------------------- */
