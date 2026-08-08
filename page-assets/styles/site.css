@@ -583,7 +583,8 @@ summary:hover {
         display: none !important;
     }
 
-    .btn-post-it {
+    .btn-post-it,
+    .scroll-top {
         padding: 12px 16px !important;
         font-size: 1.05rem !important;
         margin: 4px !important;
@@ -591,7 +592,20 @@ summary:hover {
         box-sizing: border-box !important;
         display: inline-flex !important;
         align-items: center !important;
+    }
+
+    /* Only the actual nav/menu buttons should refuse to wrap (they live in a
+       horizontally-scrolling strip). The Genre/Role/Question sticky notes
+       reuse .btn-post-it for their look but hold sentence-length text, so
+       forcing nowrap on them made them clip past the right edge on mobile. */
+    .nav-scroller .btn-post-it,
+    .nav-dropdown-content .btn-post-it {
         white-space: nowrap;
+    }
+
+    .btn-post-it.static {
+        white-space: normal !important;
+        max-width: 100%;
     }
 
     .btn-post-it img {
