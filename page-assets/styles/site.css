@@ -8,6 +8,7 @@
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 120px;
+    font-size: 18px; /* raises every rem-based size site-wide proportionally (was the 16px browser default) */
 }
 
 body {
@@ -546,10 +547,10 @@ summary:hover {
 
 @media (max-width: 768px) {
 
-    p { font-size: 1rem !important; }
-    li { font-size: 1rem !important; }
-    .tag { font-size: 1rem !important; }
-    .subtitle { font-size: 1.2rem !important; }
+    p { font-size: 1.1rem !important; }
+    li { font-size: 1.1rem !important; }
+    .tag { font-size: 1.1rem !important; }
+    .subtitle { font-size: 1.3rem !important; }
 
     /* -- Navigation Bar: Single Row Adjustments -- */
     .sticky-nav {
@@ -583,8 +584,8 @@ summary:hover {
     }
 
     .btn-post-it {
-        padding: 4px 10px !important;
-        font-size: 0.8rem !important;
+        padding: 5px 12px !important;
+        font-size: 0.95rem !important;
         margin: 2px !important;
         white-space: nowrap;
     }
