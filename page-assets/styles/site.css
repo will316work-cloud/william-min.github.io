@@ -382,7 +382,7 @@ li { margin-bottom: 12px; }
     border-bottom-right-radius: 30px 4px;
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
     gap: 20px;
 }
 
@@ -391,68 +391,19 @@ li { margin-bottom: 12px; }
     background: #e1bee7;
 }
 
-.card {
-    padding: 12px;
-    gap: 12px;
-}
-
-.card .profile-container {
-    width: 440px;
-    flex-shrink: 0;
-}
-
 .card-content {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    min-width: 0;
 }
 
 .card-content h3 {
     margin-top: 0;
-    margin-bottom: 1px;
-    font-size: 1.15rem !important;
+    margin-bottom: 10px;
 }
 
 .card-content p {
-    margin-bottom: 0;
-    font-size: 0.68rem;
-    line-height: 1;
-}
-
-.card-content ul {
-    margin: 0 0 2px 0;
-    padding-left: 15px;
-}
-
-.card-content li {
-    font-size: 0.68rem;
-    line-height: 1.05;
-    margin-bottom: 1px;
-}
-
-.card-content .meta-tags {
-    margin-bottom: 2px;
-    gap: 5px;
-}
-
-.card-content .btn-post-it {
-    padding: 2px 7px;
-    font-size: 0.68rem;
-    margin: 0;
-}
-
-.card-content .btn-post-it[href] {
-    padding: 6px 16px;
-    font-size: 0.85rem;
-    margin-top: 4px;
-}
-
-@media (max-width: 650px) {
-    .card .profile-container {
-        width: 100%;
-    }
+    margin-bottom: 15px;
 }
 
 /* --- Layout helpers ---------------------------------------------------------- */
@@ -519,21 +470,37 @@ li { margin-bottom: 12px; }
    thin border, drop shadow, clipped bottom-right corner — instead of the
    old dashed placeholder-style box. */
 details {
-    background: #ffb7b2; /* Same red as the .btn-post-it.pink Question sticky notes */
-    padding: 15px;
-    border-bottom-right-radius: 15px 3px;
     margin-top: 15px;
     border: none;
-    box-shadow: 3px 5px 10px rgba(0,0,0,0.2);
     clear: both;
 }
 
 summary {
+    background: #ffb7b2; /* Same red as the .btn-post-it.pink Question sticky notes */
+    display: inline-block;
+    padding: 8px 18px;
     font-size: 1.8rem;
     font-family: 'Caveat Brush', sans-serif;
     cursor: pointer;
     font-weight: bold;
     outline: none;
+    box-shadow: 3px 5px 10px rgba(0,0,0,0.2);
+    border-bottom-right-radius: 15px 3px;
+    transition: all 0.2s ease;
+}
+
+summary:hover {
+    transform: scale(1.05) rotate(1deg);
+    box-shadow: 4px 6px 8px rgba(0,0,0,0.2);
+    filter: brightness(1.08);
+}
+
+.hobbies-content {
+    background: #e8938d; /* darker than the summary's #ffb7b2 */
+    padding: 10px;
+    margin-top: 10px;
+    border-bottom-right-radius: 15px 3px;
+    box-shadow: 3px 5px 10px rgba(0,0,0,0.15);
 }
 
 .hobbies-content ul {
