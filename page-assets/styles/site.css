@@ -72,7 +72,7 @@ li { margin-bottom: 12px; }
 }
 
 .subtitle {
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: #555;
     transform: rotate(1deg);
     display: inline-block;
@@ -421,6 +421,22 @@ li { margin-bottom: 12px; }
 
 .card-content ul {
     margin-top: 0;
+}
+
+.card-content .read-more-btn {
+    padding: 14px 30px;
+    font-size: 1.3rem;
+}
+
+.genre-role-row {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.genre-role-row > div {
+    flex: 1;
+    min-width: 160px;
 }
 
 h2 + ul,
