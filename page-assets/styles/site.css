@@ -219,6 +219,7 @@ li { margin-bottom: 12px; }
 .btn-post-it.static {
     cursor: default;
     pointer-events: none;
+    text-align: center;
 }
 
 .btn-post-it img {
@@ -618,8 +619,21 @@ summary:hover {
         margin: 4px !important;
         min-height: 44px !important;
         box-sizing: border-box !important;
+    }
+
+    /* inline-flex is only for real clickable buttons, to center an icon +
+       label. Applying it to .static text pills (Genre/Role/Question) turns
+       any nested inline element (e.g. a <strong>) into its own flex item,
+       which breaks the text into separately-wrapping columns instead of one
+       flowing paragraph. */
+    .btn-post-it:not(.static),
+    .scroll-top {
         display: inline-flex !important;
         align-items: center !important;
+    }
+
+    .btn-post-it.static {
+        display: inline-block !important;
     }
 
     /* Only the actual nav/menu buttons should refuse to wrap (they live in a
