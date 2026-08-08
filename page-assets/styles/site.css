@@ -552,6 +552,18 @@ summary:hover {
     .tag { font-size: 1.1rem !important; }
     .subtitle { font-size: 1.3rem !important; }
 
+    .project-dates {
+        font-size: 0.85rem !important;
+        white-space: nowrap;
+        display: block;
+        margin-left: 0;
+    }
+
+    summary {
+        white-space: nowrap;
+        font-size: 1.4rem !important;
+    }
+
     /* -- Navigation Bar: Single Row Adjustments -- */
     .sticky-nav {
         padding: 0 !important; /* Move padding to the inner scroller */
