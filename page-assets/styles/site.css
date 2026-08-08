@@ -404,10 +404,10 @@ li { margin-bottom: 12px; }
 
 .project-dates {
     font-family: 'Patrick Hand', sans-serif;
-    font-size: 0.9rem;
+    font-size: 1.4667rem; /* 2/3 of the 2.2rem card title */
     font-weight: normal;
     color: #555;
-    margin-left: 8px;
+    margin-left: 20px;
 }
 
 .card-content p {
