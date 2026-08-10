@@ -20,7 +20,17 @@
         <div class="nav-scroller">
             <div class="nav-group">
 	            <span style="font-weight: bold; font-family: 'Caveat Brush', monospace; margin-right: 10px; font-size: 1.8rem">Sections:</span>
-	            <a href="#projects" class="btn-post-it blue">Projects</a>
+
+	            <div class="nav-dropdown">
+	                <span id="projects-btn" class="btn-post-it blue" onclick="toggleMenu(event)" style="cursor: pointer;">Projects ▼</span>
+
+	                <div id="projects-menu" class="nav-dropdown-content blue-note">
+	                    <div class="scrap-tape" style="top: -12px; width: 80px; margin-left: -40px; height: 25px; transform: rotate(-2deg);"></div>
+	                    <a href="#project-ghosts" class="btn-post-it blue" style="--tilt: -1.5deg;">Ghosts in the Toy Box</a>
+	                    <a href="#project-buried" class="btn-post-it blue" style="--tilt: 2deg;">Buried in Love</a>
+	                </div>
+	            </div>
+
 	            <a href="#about" class="btn-post-it pink">About Me</a>
 	        </div>
 			
@@ -50,7 +60,7 @@
         <h2>Projects Board</h2>
         <div class="projects-grid">
 
-			<div class="card" style="flex-direction: column; align-items: stretch;">
+			<div id="project-ghosts" class="card" style="flex-direction: column; align-items: stretch;">
 				<div class="profile-container" style="transform: rotate(-2deg); width: 100%;">
             	    <div class="profile-tape" style="transform: rotate(1deg);"></div>
            	    	<div class="profile-pic"><img src="page-assets/project-ghost/Ghosts in the Toy Box Cover.gif" alt="Ghosts in the Toy Box gameplay"></div>
@@ -90,7 +100,7 @@
                 </div>
             </div>
 
-            <div class="card" style="background: #e1bee7; flex-direction: column; align-items: stretch;">
+            <div id="project-buried" class="card" style="background: #e1bee7; flex-direction: column; align-items: stretch;">
 				<div class="profile-container" style="transform: rotate(2deg); width: 100%;">
             	    <div class="profile-tape" style="transform: rotate(-2deg);"></div>
            	    	<div class="profile-pic">
@@ -248,6 +258,54 @@
         
         <a href="#top" class="scroll-top">↑ Top</a>
     </div>
+
+	<script>
+
+        function toggleMenu(event) {
+            // Prevent the click from immediately bubbling up and triggering the document closer
+            event.stopPropagation();
+
+            var menu = document.getElementById("projects-menu");
+            var btn = document.getElementById("projects-btn");
+
+            // Toggle the menu open and closed
+            menu.classList.toggle("active");
+
+            // Toggle the arrow based on whether the menu is active
+            if (menu.classList.contains("active")) {
+                btn.innerHTML = "Projects ▲";
+            } else {
+                btn.innerHTML = "Projects ▼";
+            }
+        }
+
+        // A helper function to guarantee the menu and arrow close cleanly together
+        function closeMenu() {
+            var menu = document.getElementById("projects-menu");
+            var btn = document.getElementById("projects-btn");
+
+            if (menu && menu.classList.contains("active")) {
+                menu.classList.remove("active");
+                if (btn) {
+                    btn.innerHTML = "Projects ▼";
+                }
+            }
+        }
+
+        // 1. Close the menu if the user clicks anywhere else on the page
+        document.addEventListener("click", function(event) {
+            closeMenu();
+        });
+
+        // 2. Explicitly close the menu and reset the arrow when a user clicks a dropdown link
+        var dropdownLinks = document.querySelectorAll("#projects-menu a");
+        dropdownLinks.forEach(function(link) {
+            link.addEventListener("click", function(event) {
+                closeMenu();
+            });
+        });
+
+    </script>
 
 </body>
 </html>
