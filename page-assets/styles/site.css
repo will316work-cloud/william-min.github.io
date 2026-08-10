@@ -363,6 +363,36 @@ li { margin-bottom: 12px; }
     object-fit: cover;
 }
 
+/* Forces every photo in a row to the same height and crops to fill it,
+   instead of each image keeping its own natural aspect ratio (which made
+   portrait phone photos and widescreen GIFs wildly different sizes when
+   placed side by side at the same width). */
+.even-photo-row .profile-container {
+    height: 280px;
+}
+
+.even-photo-row .profile-pic img {
+    height: 100%;
+    object-fit: cover;
+}
+
+/* These GIFs are pillarboxed (black bars baked into the file from a portrait
+   phone recording exported to a fixed landscape canvas). Rather than
+   cropping them down to the same 280px box as the photos, give their frame
+   extra height so the full picture fits with little to no cropping. */
+.even-photo-row .gif-frame {
+    height: 420px;
+}
+
+.gif-pic {
+    overflow: hidden;
+}
+
+.gif-pic img {
+    height: 100%;
+    object-fit: cover;
+}
+
 .profile-tape {
     top: -10px;
     width: 25%;
