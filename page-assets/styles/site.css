@@ -454,6 +454,19 @@ li { margin-bottom: 12px; }
     margin-top: 0;
 }
 
+.software-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.software-icon {
+    width: 1.1em;
+    height: 1.1em;
+    vertical-align: middle;
+}
+
 .card-content .read-more-btn {
     padding: 14px 30px;
     font-size: 1.3rem;
