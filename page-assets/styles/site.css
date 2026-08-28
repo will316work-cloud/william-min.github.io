@@ -468,8 +468,9 @@ li { margin-bottom: 12px; }
 }
 
 .card-content .read-more-btn {
-    padding: 14px 30px;
-    font-size: 1.3rem;
+    padding: 20px 44px;
+    font-size: 1.7rem;
+    margin-top: 10px;
 }
 
 .genre-role-row {
@@ -585,6 +586,7 @@ summary:hover {
     margin-top: 10px;
     border-bottom-right-radius: 15px 3px;
     box-shadow: 3px 5px 10px rgba(0,0,0,0.15);
+    position: relative;
 }
 
 .hobbies-content ul {
